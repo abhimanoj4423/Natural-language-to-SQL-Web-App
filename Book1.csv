@@ -1,0 +1,85 @@
+Prompt,SQL Query
+Get all records from the customers table,SELECT * FROM customers;
+Select the name and age of all employees,"SELECT name, age FROM employees;"
+Retrieve the total sales amount from the orders table,SELECT SUM(total_amount) FROM orders;
+Get the first 10 rows from the products table,SELECT * FROM products LIMIT 10;
+Find all customers from New York,SELECT * FROM customers WHERE city = 'New York';
+Count the number of orders placed in the last month,"SELECT COUNT(*) FROM orders WHERE order_date >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);"
+List the top 5 selling products,SELECT product_name FROM products ORDER BY sales DESC LIMIT 5;
+Retrieve the email addresses of all users who signed up in the last year,"SELECT email FROM users WHERE signup_date >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR);"
+Calculate the average salary of employees in the IT department,SELECT AVG(salary) FROM employees WHERE department = 'IT';
+Get the names of customers who have placed more than 5 orders,SELECT name FROM customers WHERE order_count > 5;
+Find the highest price of any product,SELECT MAX(price) FROM products;
+Select all distinct cities from the suppliers table,SELECT DISTINCT city FROM suppliers;
+Get the number of employees in each department,"SELECT department, COUNT(*) FROM employees GROUP BY department;"
+Retrieve the order IDs and order dates for all orders placed by customer ID 123,"SELECT order_id, order_date FROM orders WHERE customer_id = 123;"
+Find the sum of all payments made in the current year,SELECT SUM(payment_amount) FROM payments WHERE payment_date BETWEEN '2024-01-01' AND NOW();
+List the products with no sales in the last quarter,"SELECT * FROM products WHERE sales = 0 AND order_date >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH);"
+Get the most recent login date for each user,"SELECT user_id, MAX(login_date) FROM logins GROUP BY user_id;"
+Retrieve all records where the status is 'Pending',SELECT * FROM orders WHERE status = 'Pending';
+Select the name and contact information for suppliers located in California,"SELECT name, contact_info FROM suppliers WHERE state = 'California';"
+Get the details of the last 5 transactions,SELECT * FROM transactions ORDER BY transaction_date DESC LIMIT 5;
+Find the average rating for each product category,"SELECT category, AVG(rating) FROM products GROUP BY category;"
+List all orders that were shipped after their expected delivery date,SELECT * FROM orders WHERE shipping_date > expected_delivery_date;
+Retrieve the details of all products with a price greater than $1000,SELECT * FROM products WHERE price > 1000;
+Get the total number of customers who have not made any purchases,SELECT COUNT(*) FROM customers WHERE order_count = 0;
+Find the number of orders that include a specific product ID,SELECT COUNT(*) FROM order_items WHERE product_id = [specific_product_id];
+Get the sum of all discounts applied in the current month,"SELECT SUM(discount_amount) FROM discounts WHERE discount_date >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);"
+List all employees hired in the last 6 months,"SELECT * FROM employees WHERE hire_date >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH);"
+Retrieve the name and price of the cheapest product,"SELECT name, price FROM products ORDER BY price ASC LIMIT 1;"
+Select all users who have not logged in within the last 30 days,"SELECT * FROM users WHERE last_login <= DATE_SUB(CURDATE(), INTERVAL 30 DAY);"
+Get the total revenue generated from a specific product category,"SELECT category, SUM(revenue) FROM products GROUP BY category;"
+Find all orders where the quantity ordered exceeds 100 units,SELECT * FROM orders WHERE quantity > 100;
+Retrieve the average order value for each customer,"SELECT customer_id, AVG(order_value) FROM orders GROUP BY customer_id;"
+List all products with a stock quantity less than 10,SELECT * FROM products WHERE stock_quantity < 10;
+Get the names of employees who work in more than one department,SELECT name FROM employees WHERE department_count > 1;
+Find the total number of products in each category,"SELECT category, COUNT(*) FROM products GROUP BY category;"
+Retrieve the details of orders that were cancelled,SELECT * FROM orders WHERE status = 'Cancelled';
+Get the top 3 most expensive products,SELECT * FROM products ORDER BY price DESC LIMIT 3;
+Find all customers who have a Gmail email address,SELECT * FROM customers WHERE email LIKE '%gmail.com';
+Retrieve the names of all suppliers who provide more than 10 products,SELECT name FROM suppliers WHERE product_count > 10;
+List all employees who have a salary above the company average,SELECT * FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);
+Get the total number of orders placed on a weekend,"SELECT COUNT(*) FROM orders WHERE DAYOFWEEK(order_date) IN (1, 7);"
+Find all products that have never been ordered,SELECT * FROM products WHERE product_id NOT IN (SELECT product_id FROM order_items);
+Retrieve the number of active users in the last month,"SELECT COUNT(*) FROM users WHERE last_login >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);"
+List the top 5 most popular categories based on sales,"SELECT category, SUM(sales) FROM products GROUP BY category ORDER BY SUM(sales) DESC LIMIT 5;"
+Get the total number of complaints received in the last year,"SELECT COUNT(*) FROM complaints WHERE complaint_date >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR);"
+Find the average delivery time for orders,"SELECT AVG(TIMESTAMPDIFF(HOUR, order_date, delivery_date)) AS avg_delivery_time FROM orders;"
+Retrieve the names of all customers who made a purchase today,SELECT name FROM customers WHERE purchase_date = CURDATE();
+List the product names and their corresponding categories,"SELECT product_name, category FROM products;"
+Get the total number of transactions made in the current month,"SELECT COUNT(*) FROM transactions WHERE transaction_date >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);"
+Find all orders with a shipping cost above $50,SELECT * FROM orders WHERE shipping_cost > 50;
+Retrieve the details of the most recent order for each customer,SELECT * FROM orders WHERE order_date = (SELECT MAX(order_date) FROM orders WHERE customer_id = orders.customer_id);
+Get the average customer rating for each product,"SELECT product_name, AVG(rating) FROM reviews GROUP BY product_name;"
+Find the total number of returns processed in the last year,"SELECT COUNT(*) FROM returns WHERE return_date >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR);"
+List all suppliers who have been in partnership for more than 5 years,"SELECT name FROM suppliers WHERE partnership_start_date <= DATE_SUB(CURDATE(), INTERVAL 5 YEAR);"
+Get the total sales amount for each region,"SELECT region, SUM(sales) FROM sales GROUP BY region;"
+Retrieve the details of all high-priority orders,SELECT * FROM orders WHERE priority = 'High';
+Find all customers who have made more than 3 purchases in the last week,"SELECT * FROM customers WHERE purchase_count > 3 AND purchase_date >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK);"
+Get the total number of products with a price between $50 and $100,SELECT COUNT(*) FROM products WHERE price BETWEEN 50 AND 100;
+List the names of all customers who have purchased a specific product,SELECT name FROM customers WHERE customer_id IN (SELECT customer_id FROM orders WHERE product_id = [specific_product_id]);
+Retrieve the names of all employees who work remotely,SELECT name FROM employees WHERE remote_work = TRUE;
+Find the average order processing time for the last month,"SELECT AVG(TIMESTAMPDIFF(HOUR, order_date, processing_date)) AS avg_processing_time FROM orders WHERE order_date >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);"
+Get the details of all products with a 5-star rating,SELECT * FROM products WHERE rating = 5;
+Retrieve the names of customers with a last name starting with 'A',SELECT name FROM customers WHERE last_name LIKE 'A%';
+Get the total number of orders with a status of 'Shipped',SELECT COUNT(*) FROM orders WHERE status = 'Shipped';
+List all products that are currently out of stock,SELECT * FROM products WHERE stock_quantity = 0;
+Find the total number of orders placed in the last 24 hours,"SELECT COUNT(*) FROM orders WHERE order_date >= DATE_SUB(NOW(), INTERVAL 24 HOUR);"
+Retrieve the details of the largest order by value,SELECT * FROM orders ORDER BY total_amount DESC LIMIT 1;
+Get the names of all customers who have not updated their contact information,SELECT name FROM customers WHERE contact_updated = FALSE;
+Find the total amount of tax collected in the last quarter,"SELECT SUM(tax_amount) FROM orders WHERE order_date >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH);"
+List the names of all customers who have referred a friend,SELECT name FROM customers WHERE referral_count > 0;
+Retrieve the details of all products that were discounted,SELECT * FROM products WHERE discount > 0;
+Get the total number of unique customers,SELECT COUNT(DISTINCT customer_id) FROM orders;
+Find the total revenue generated from repeat customers,SELECT SUM(total_amount) FROM orders WHERE repeat_customer = TRUE;
+List all orders that were cancelled after payment was made,SELECT * FROM orders WHERE status = 'Cancelled' AND payment_received = TRUE;
+Retrieve the average purchase value for each product category,"SELECT category, AVG(total_amount) FROM orders GROUP BY category;"
+Get the total number of new customers acquired in the last quarter,"SELECT COUNT(*) FROM customers WHERE signup_date >= DATE_SUB(CURDATE(), INTERVAL 3 MONTH);"
+Find the total number of orders with free shipping,SELECT COUNT(*) FROM orders WHERE shipping_cost = 0;
+List all employees who were promoted in the last year,"SELECT * FROM employees WHERE promotion_date >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR);"
+Get the details of all high-value transactions,SELECT * FROM transactions WHERE amount > 5000;
+Retrieve the details of orders that include a specific product,SELECT * FROM orders WHERE order_id IN (SELECT order_id FROM order_items WHERE product_id = [specific_product_id]);
+Find the average age of customers,SELECT AVG(age) FROM customers;
+List all suppliers who are based in Europe,SELECT name FROM suppliers WHERE region = 'Europe';
+Get the total number of orders placed during a holiday season,SELECT COUNT(*) FROM orders WHERE order_date IN ([list_of_holiday_dates]);
+Retrieve the names of all customers who have an outstanding balance,SELECT name FROM customers WHERE outstanding_balance > 0;
